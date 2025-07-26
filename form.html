@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Student Form</title></head>
+<body>
+  <h1>Student Registration Form</h1>
+
+  <p>
+    <label>Name:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <input type="text" name="name" required><br>
+  </p>
+
+  <p>
+    <label>Email:&nbsp;&nbsp;&nbsp;</label>
+    <input type="email" name="email" required><br>
+  </p>
+
+  <p>
+    <label>Roll No:&nbsp;&nbsp;</label>
+    <input type="number" name="roll" required><br>
+  </p>
+
+  <p>
+    <label>DOB:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <input type="date" name="dob" required><br>
+  </p>
+
+  <p>
+    <label>Address:</label><br>
+    <textarea name="address" rows="4"></textarea><br>
+  </p>
+
+  <p>
+    <label>Favorite Subject:&nbsp;&nbsp;</label>
+    <input list="subject-list" name="subject">
+    <datalist id="subject-list">
+      <option value="Hindi"><option value="English"><option value="Maths"><option value="SST"><option value="Science"><option value="Drawing">
+    </datalist>
+  </p>
+
+  <p>
+    <label>Gender:</label><br>
+    <input type="radio" name="gender" value="Male"> Male&nbsp;&nbsp;
+    <input type="radio" name="gender" value="Female"> Female&nbsp;&nbsp;
+    <input type="radio" name="gender" value="Others"> Others<br>
+  </p>
+
+  <p>
+    <label>Hobbies:</label><br>
+    <input type="checkbox" name="hobbies" value="Coding"> Coding&nbsp;&nbsp;
+    <input type="checkbox" name="hobbies" value="Running"> Running&nbsp;&nbsp;
+    <input type="checkbox" name="hobbies" value="Reading"> Reading<br>
+  </p>
+
+  <p>
+    <button type="submit">Submit</button>
+  </p>
+</body>
+</html>
