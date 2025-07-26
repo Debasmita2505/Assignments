@@ -1,58 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Student Form</title></head>
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration Form</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+</head>
 <body>
-  <h1>Student Registration Form</h1>
 
-  <p>
-    <label>Name:&nbsp;&nbsp;&nbsp;&nbsp;</label>
-    <input type="text" name="name" required><br>
-  </p>
+<div class="container">
+  <h2>Student Registration Form</h2>
+  <form id="regForm" action="/submit_registration" method="post">
+    <!-- Personal Info -->
+    <fieldset>
+      <legend>Personal Information</legend>
 
-  <p>
-    <label>Email:&nbsp;&nbsp;&nbsp;</label>
-    <input type="email" name="email" required><br>
-  </p>
+      <div class="field">
+        <label for="firstName">First Name *</label>
+        <i class="fa fa-user icon"></i>
+        <input type="text" id="firstName" name="firstName" required>
+      </div>
+<br>
+      <div class="field">
+        <label for="lastName">Last Name *</label>
+        <i class="fa fa-user icon"></i>
+        <input type="text" id="lastName" name="lastName" required>
+      </div>
+     <br>
 
-  <p>
-    <label>Roll No:&nbsp;&nbsp;</label>
-    <input type="number" name="roll" required><br>
-  </p>
+      <div class="field">
+        <label for="dob">Date of Birth *</label>
+        <i class="fa fa-calendar icon"></i>
+        <input type="date" id="dob" name="dob" max="2015-12-31" required>
+      </div>
+<br>
+      <div class="field">
+        <label>Gender *</label>
+        <div>
+          <label><input type="radio" name="gender" value="male" required> Male</label>
+          <label><input type="radio" name="gender" value="female"> Female</label>
+        </div>
+        <br>
+      </div>
+    </fieldset>
 
-  <p>
-    <label>DOB:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-    <input type="date" name="dob" required><br>
-  </p>
+    <!-- Contact & Academic -->
+    <fieldset>
+      <legend>Contact & Academic Details</legend>
 
-  <p>
-    <label>Address:</label><br>
-    <textarea name="address" rows="4"></textarea><br>
-  </p>
+      <div class="field">
+        <label for="email">Email *</label>
+        <i class="fa fa-envelope icon"></i>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <br>
 
-  <p>
-    <label>Favorite Subject:&nbsp;&nbsp;</label>
-    <input list="subject-list" name="subject">
-    <datalist id="subject-list">
-      <option value="Hindi"><option value="English"><option value="Maths"><option value="SST"><option value="Science"><option value="Drawing">
-    </datalist>
-  </p>
+      <div class="field">
+        <label for="phone">Phone *</label>
+        <i class="fa fa-phone icon"></i>
+        <input type="tel" id="phone" name="phone" pattern="\\d{10}" required placeholder="10 digits">
+      </div>
+     <br>
 
-  <p>
-    <label>Gender:</label><br>
-    <input type="radio" name="gender" value="Male"> Male&nbsp;&nbsp;
-    <input type="radio" name="gender" value="Female"> Female&nbsp;&nbsp;
-    <input type="radio" name="gender" value="Others"> Others<br>
-  </p>
+      <div class="field">
+        <label for="course">Course *</label>
+        <i class="fa fa-book icon"></i>
+        <select id="course" name="course" required>
+          <option value="">Select Course</option>
+          <option value="BTech">B.Tech</option>
+          <option value="BCA">BCA</option>
+          <option value="MCA">MCA</option>
+          <option value="MBA">MBA</option>
+        </select>
+      </div>
+      <br>
 
-  <p>
-    <label>Hobbies:</label><br>
-    <input type="checkbox" name="hobbies" value="Coding"> Coding&nbsp;&nbsp;
-    <input type="checkbox" name="hobbies" value="Running"> Running&nbsp;&nbsp;
-    <input type="checkbox" name="hobbies" value="Reading"> Reading<br>
-  </p>
+      <div class="field">
+        <label for="address">Address *</label>
+        <i class="fa fa-address-book icon"></i>
+        <textarea id="address" name="address" rows="3" required></textarea>
+      </div>
+      <br>
+    </fieldset>
 
-  <p>
-    <button type="submit">Submit</button>
-  </p>
+    <!-- Credentials -->
+    <fieldset>
+      <legend>Account Credentials</legend>
+
+      <div class="field">
+        <label for="username">Username *</label>
+        <i class="fa fa-user-circle icon"></i>
+        <input type="text" id="username" name="username" required pattern="[A-Za-z0-9]{5,15}" placeholder="5–15 letters/numbers">
+      </div>
+      <br>
+
+      <div class="field">
+        <label for="password">Password *</label>
+        <i class="fa fa-lock icon"></i>
+        <input type="password" id="password" name="password" required minlength="8">
+      </div>
+      <br>
+
+      <div class="field">
+        <label for="confirm">Confirm Password *</label>
+        <i class="fa fa-lock icon"></i>
+        <input type="password" id="confirm" name="confirm" required>
+      </div>
+    
+    </fieldset>
+
+    <div class="submit-buttons">
+      <button type="submit" class="submit">Register</button>
+      <button type="reset" class="reset">Reset</button>
+    </div>
+  </form>
+</div>
 </body>
 </html>
+
