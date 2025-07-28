@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MediaClone Profile</title>
+  <style>
+    :root {
+      --primary: #4267B2;
+      --light: #ffffff;
+      --dark: #333;
+      --muted: #666;
+      --bg: #f0f2f5;
+      --card: #fff;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--dark); }
+    .header {
+      background: linear-gradient(135deg, #4267B2 0%, #5b8bd4 100%);
+      color: var(--light); padding:20px; text-align:center; font-size:2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .cover {
+      width:100%; height:200px; background:url('https://source.unsplash.com/collection/898191/800x200') center/cover;
+      position: relative;
+    }
+    .profile {
+      background: var(--card); max-width:600px; margin:-80px auto 30px;
+      border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      padding: 90px 20px 20px; text-align:center;
+      position: relative;
+    }
+    .profile img {
+      width:140px; height:140px; border-radius:50%; border:4px solid var(--card);
+      object-fit: cover; position: absolute; top:-70px; left:50%; transform:translateX(-50%);
+    }
+    .profile h2 { font-size:1.8rem; margin-top:15px; }
+    .profile p { color: var(--muted); margin-bottom:15px; }
+    .stats {
+      display: flex; justify-content:center; gap:30px; margin-bottom:15px;
+    }
+    .stats div { text-align:center; }
+    .stats div span:first-child { display:block; font-weight:bold; font-size:1.2rem; }
+    .actions a {
+      display:inline-block; margin:0 8px; font-size:1.5rem; color: var(--primary);
+      transition: color .3s;
+    }
+    .actions a:hover { color: #274a8a; }
+    .post-container { max-width:600px; margin:20px auto; }
+    .post {
+      background: var(--card); padding:15px; margin-bottom:15px; border-radius:8px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.05); transition: transform .3s, box-shadow .3s;
+    }
+    .post:hover { transform: translateY(-3px); box-shadow:0 4px 12px rgba(0,0,0,0.1); }
+    .post h4 { margin-bottom:8px; color: var(--primary); }
+    .post p { color: var(--dark); }
+    @media (max-width:600px) {
+      .cover { height:150px; }
+      .profile img { width:100px; height:100px; top:-50px; }
+      .header { font-size:1.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">MediaClone</div>
+  <div class="cover"></div>
+  <div class="profile">
+    <img src="https://get.pxhere.com/photo/person-girl-woman-hair-camera-photography-photographer-cute-portrait-model-fashion-clothing-lady-smile-sunglasses-eye-glasses-singing-photograph-eyewear-beauty-beautiful-pretty-costume-photo-shoot-portrait-photography-vision-care-990040.jpg" alt="Profile">
+    <h2>Debasmita Palai</h2>
+    <p>@debasmita</p>
+    <div class="stats">
+      <div><span>3</span> Posts</div>
+      <div><span>120</span> Followers</div>
+      <div><span>250</span> Following</div>
+    </div>
+    <div class="actions">
+      <a href="#" title="Follow">➕</a>
+      <a href="#" title="Message">✉️</a>
+      <a href="#" title="Share">🔗</a>
+    </div>
+  </div>
+  <div class="post-container">
+    <div class="post"><h4>New Post</h4><p>Enjoying the beautiful sunset today!!</p></div>
+    <div class="post"><h4>Birthday Celebration</h4><p>Thank you all for the lovely wishes! It was a day to remember! 🎂</p></div>
+    <div class="post"><h4>💻 Coding Vibes</h4><p>Learning HTML & CSS today. Made a cool media profile!</p></div>
+  </div>
+</body>
+</html>
