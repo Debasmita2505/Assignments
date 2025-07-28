@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animated Landing Page</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:sans-serif; color:#fff; }
+    header.hero {
+      display:grid; grid-template-columns:1fr 1fr;
+      align-items:center; min-height:100vh;
+      padding:0 5%;
+      background:linear-gradient(135deg, #667eea, #764ba2);
+      background-size:200% 200%; animation:bgShift 15s infinite alternate;
+    }
+    @keyframes bgShift {
+      0% { background-position:0% 50%; }
+      100% { background-position:100% 50%; }
+    }
+    header nav {
+      grid-column:1/-1; display:flex; justify-content:space-between; padding:20px;
+    }
+    header nav .btn-primary {
+      background:#ff4081; color:#fff; padding:10px 20px; border-radius:20px; text-decoration:none;
+    }
+    .hero-content {
+      animation: fadeUp 1.2s ease-out forwards; opacity:0; animation-delay:.5s;
+    }
+    .hero-content h1 { font-size:3rem; margin-bottom:10px; }
+    .typing {
+      display:inline-block; overflow:hidden; white-space:nowrap;
+      border-right:.1em solid #fff;
+      animation: typing 2s steps(12,end), blink .75s step-end infinite;
+    }
+    @keyframes typing {
+      from { width:0; } to { width:6ch; }
+    }
+    @keyframes blink {
+      50% { border-color:transparent; }
+    }
+    .hero-content p {
+      margin-top:10px;
+      animation: fadeUp 1s ease-out forwards; opacity:0; animation-delay:2s;
+    }
+    .btn-get {
+      display:inline-block; margin-top:20px;
+      padding:15px 30px; background:#fff; color:#333;
+      border-radius:30px; font-weight:bold; text-decoration:none;
+      transition:transform .3s;
+      opacity:0; animation: fadeUp 1s forwards; animation-delay:2.3s;
+    }
+    .btn-get:hover { transform:scale(1.05); }
+    .hero-illus img {
+      width:100%; max-width:400px;
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%,100% { transform:translateY(0); }
+      50% { transform:translateY(-20px); }
+    }
+    @keyframes fadeUp {
+      from { transform:translateY(30px); opacity:0; }
+      to { transform:translateY(0); opacity:1; }
+    }
+    section.features {
+      display:flex; flex-wrap:wrap; justify-content:center;
+      background:#f4f4f4; color:#333; padding:60px 20px;
+    }
+    .feature {
+      width:280px; background:#fff; padding:20px;
+      border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1);
+      opacity:0; transform:translateY(30px);
+      transition:opacity .6s, transform .6s;
+      margin:10px;
+      text-align:center;
+    }
+    .feature.visible { opacity:1; transform:translateY(0); }
+    .feature h2 { margin-bottom:10px; color:#333; }
+    /* make text dark inside features */
+    section.features p { color:#555; }
+
+    section.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  background: #f4f4f4;
+  color: #333;
+  padding: 60px 10%;
+}
+
+.feature {
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+  text-align: center;
+  cursor: default;
+  position: relative;
+}
+
+.feature.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.feature .icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #764ba2;
+  transition: transform 0.3s ease;
+}
+
+.feature:hover .icon {
+  transform: scale(1.2);
+}
+
+.feature h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.feature p {
+  color: #555;
+  line-height: 1.5;
+}
+
+  </style>
+</head>
+<body>
+  <section id="features" class="features">
+  <div class="feature">
+    <div class="icon">⚡</div>
+    <h2>Fast</h2>
+    <p>Lightning-fast performance to boost your shopping experience.</p>
+  </div>
+  <div class="feature">
+    <div class="icon">🎯</div>
+    <h2>Interactive</h2>
+    <p>Engaging micro‑animations that respond to your actions.</p>
+  </div>
+  <div class="feature">
+    <div class="icon">📱</div>
+    <h2>Responsive</h2>
+    <p>Optimized for all devices – from phones to desktops.</p>
+  </div>
+</section>
+
+  <header class="hero">
+    <nav>
+      <div class="logo">Smartshopy</div>
+      <ul style="list-style:none; display:flex; gap:20px;">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shops</a></li>
+        <li><a href="#">Seller</a></li>
+        <li><a href="#">Log In</a></li>
+        <li><a href="#" class="btn-primary">Sign Up</a></li>
+      </ul>
+    </nav>
+    <div class="hero-content">
+      <h1>Smart shopping <span class="typing">made easy!</span></h1>
+      <p>Find the best shops with verified reviews only!</p>
+      <a href="#features" class="btn-get">Get started</a>
+    </div>
+    <div class="hero-illus">
+      <img src="https://i5.walmartimages.com/asr/199ab764-f112-4508-888c-86a1094624e8.17daf90b726900a539a8b9873fdea1f5.jpeg" alt="Illustration"/>
+    </div>
+  </header>
+
+  <section id="features" class="features">
+    <div class="feature"><h2>Fast</h2><p>Lightning‑fast performance.</p></div>
+    <div class="feature"><h2>Interactive</h2><p>Engaging micro‑animations.</p></div>
+    <div class="feature"><h2>Responsive</h2><p>Built for all screens.</p></div>
+  </section>
+
+  <script>
+
+    window.addEventListener('scroll', () => {
+  document.querySelectorAll('.feature').forEach((el, i) => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 50) {
+      setTimeout(() => el.classList.add('visible'), i * 150);
+    }
+  });
+});
+
+  </script>
+</body>
+</html>
+
+
+
+
+
+
