@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ID Card</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #e3f2fd;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+      color: #0d47a1;
+    }
+
+    .form {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 320px;
+    }
+
+    .form input {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .form .btn-group {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .form button {
+      padding: 10px;
+      border: none;
+      background: #2196f3;
+      color: white;
+      border-radius: 5px;
+      font-size: 14px;
+      width: 48%;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .form button:hover {
+      background: #1976d2;
+    }
+
+    .id-card {
+      width: 300px;
+      background: white;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      padding: 20px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .id-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid #2196f3;
+    }
+
+    .id-card h2 {
+      margin: 10px 0 5px;
+      color: #0d47a1;
+    }
+
+    .id-card p {
+      margin: 5px 0;
+      font-size: 15px;
+      color: #333;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>ID Card Generator</h1>
+
+  <div class="form">
+    <input type="text" id="name" placeholder="Enter Name" />
+    <input type="text" id="roll" placeholder="Enter Roll No" />
+    <input type="text" id="course" placeholder="Enter Course" />
+    <input type="text" id="institute" placeholder="Institute Name" />
+    <input type="url" id="photo" placeholder="Paste Photo URL" />
+
+    <div class="btn-group">
+      <button onclick="generateID()">Generate</button>
+      <button onclick="resetForm()" style="background: #f44336;">Reset</button>
+    </div>
+  </div>
+
+  <div class="id-card" id="idCard">
+    <img id="idPhoto" src="" alt="Photo">
+    <h2 id="idName"></h2>
+    <p><strong>Roll No:</strong> <span id="idRoll"></span></p>
+    <p><strong>Course:</strong> <span id="idCourse"></span></p>
+    <p><strong>Institute:</strong> <span id="idInstitute"></span></p>
+  </div>
+
+  <script>
+    function generateID() {
+      const name = document.getElementById('name').value.trim();
+      const roll = document.getElementById('roll').value.trim();
+      const course = document.getElementById('course').value.trim();
+      const institute = document.getElementById('institute').value.trim();
+      const photo = document.getElementById('photo').value.trim();
+
+      if (!name || !roll || !course || !institute || !photo) {
+        alert("Please fill out all fields.");
+        return;
+      }
+
+      document.getElementById('idName').textContent = name;
+      document.getElementById('idRoll').textContent = roll;
+      document.getElementById('idCourse').textContent = course;
+      document.getElementById('idInstitute').textContent = institute;
+      document.getElementById('idPhoto').src = photo;
+
+      document.getElementById('idCard').style.display = "flex";
+    }
+
+    function resetForm() {
+      document.getElementById('name').value = "";
+      document.getElementById('roll').value = "";
+      document.getElementById('course').value = "";
+      document.getElementById('institute').value = "";
+      document.getElementById('photo').value = "";
+      document.getElementById('idCard').style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
